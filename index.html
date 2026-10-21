@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jn Kelly Saingilus | Software Developer </title>
+<meta name="description" content="Portfolio of Jean-Kelly Saingilus: databases, IoT and software development in Haiti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#f7f7f3; --ink:#121826; --muted:#566074; --line:#d9dbe2;
+    --blue:#1f3fbf; --red:#d21034; --card:#fff;
+    --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+    --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --paper:#0f1420; --ink:#eef0f6; --muted:#9aa3b8; --line:#263049; --blue:#7d96ff; --red:#ff6b85; --card:#161d2e; }
+  }
+  :root[data-theme="dark"] { --paper:#0f1420; --ink:#eef0f6; --muted:#9aa3b8; --line:#263049; --blue:#7d96ff; --red:#ff6b85; --card:#161d2e; }
+
+  *,*::before,*::after { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+  body { margin:0; background:var(--paper); color:var(--ink); font:1.125rem/1.6 var(--body); }
+  a { color:var(--blue); text-underline-offset:3px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline:3px solid var(--blue); outline-offset:3px; border-radius:4px; }
+  .wrap { max-width:880px; margin:0 auto; padding:0 1.5rem; }
+
+  .bar { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; gap:1rem; }
+  .bar nav { display:flex; gap:1.1rem; flex-wrap:wrap; }
+  .bar nav a { color:var(--ink); text-decoration:none; font-weight:600; }
+  .bar nav a:hover { color:var(--blue); }
+  .theme-btn { background:none; border:1px solid var(--line); color:var(--ink); padding:.4rem .8rem; border-radius:999px; font:inherit; font-size:.95rem; cursor:pointer; white-space:nowrap; }
+
+  .hero { display:flex; align-items:center; justify-content:space-between; gap:2.5rem; padding:3.5rem 0; }
+  .hero-text { flex:1; min-width:0; }
+  .flagbar { display:flex; height:8px; width:7rem; margin-bottom:1.5rem; border-radius:4px; overflow:hidden; }
+  .flagbar span { flex:1; background:var(--blue); }
+  .flagbar span + span { background:var(--red); }
+  .hero h1 { font-family:var(--display); font-weight:800; font-size:clamp(2.5rem,7.5vw,4.6rem); line-height:1; letter-spacing:-.03em; margin:0 0 1.25rem; overflow-wrap:anywhere; }
+  .role { font-family:var(--display); font-weight:500; font-size:1.35rem; margin:0 0 .75rem; }
+  .hero p { max-width:34rem; color:var(--muted); margin:0 0 1.75rem; }
+  .photo { width:220px; height:220px; flex:none; border-radius:50%; object-fit:cover; border:4px solid var(--paper); box-shadow:0 0 0 3px var(--blue); background:var(--line); }
+  .btns { display:flex; flex-wrap:wrap; gap:.75rem; }
+  .btn { display:inline-block; padding:.7rem 1.3rem; border-radius:8px; font:600 1rem var(--body); text-decoration:none; border:2px solid var(--ink); color:var(--ink); background:none; cursor:pointer; }
+  .btn.primary { background:var(--ink); color:var(--paper); }
+  .btn:hover { border-color:var(--blue); }
+  .btn.primary:hover { background:var(--blue); color:#fff; }
+  .btn.wa { background:#1fa855; border-color:#1fa855; color:#fff; }
+  .btn.wa:hover { background:#188a45; border-color:#188a45; }
+
+  section { padding:3rem 0; border-top:1px solid var(--line); }
+  h2 { font-family:var(--display); font-size:1.9rem; letter-spacing:-.02em; margin:0 0 1.25rem; }
+  h3 { font-family:var(--display); margin:0 0 .35rem; }
+  .about p { max-width:40rem; margin:0 0 1rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; }
+  .grid h3 { font-size:1.1rem; }
+  .grid p, .stack { margin:0; color:var(--muted); font-size:1rem; }
+
+  .learn { margin-top:2.5rem; }
+  .learn li { margin-bottom:.5rem; }
+  ul.plain { padding-left:1.2rem; margin:0; max-width:40rem; }
+
+  .project { padding:1.4rem 0; border-bottom:1px solid var(--line); }
+  .project:last-child { border-bottom:0; }
+  .project h3 { font-size:1.3rem; }
+  .project p { margin:0 0 .5rem; max-width:42rem; }
+  .status { display:inline-block; font-size:.85rem; font-weight:600; color:var(--red); margin-left:.5rem; }
+  .links { margin-top:.4rem; font-weight:600; }
+
+  form { display:grid; gap:1rem; max-width:34rem; }
+  label { display:grid; gap:.3rem; font-weight:600; font-size:1rem; }
+  input, textarea { font:inherit; padding:.7rem .8rem; border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); }
+  textarea { min-height:140px; resize:vertical; }
+  #formMsg { margin:0; font-weight:600; min-height:1.5em; }
+  .or { margin:1.5rem 0 .75rem; color:var(--muted); }
+  .hp { position:absolute; left:-9999px; }
+
+  .fab { position:fixed; right:1.25rem; bottom:1.25rem; width:56px; height:56px; border-radius:50%; background:#1fa855; display:grid; place-items:center; box-shadow:0 4px 14px rgba(0,0,0,.3); z-index:10; }
+  .fab:hover { background:#188a45; }
+  .fab svg { width:30px; height:30px; fill:#fff; }
+
+  footer { padding:2rem 0 4rem; color:var(--muted); font-size:.95rem; border-top:1px solid var(--line); }
+
+  @media (max-width:640px) {
+    .hero { flex-direction:column-reverse; align-items:flex-start; padding:2rem 0; gap:1.5rem; }
+    .photo { width:150px; height:150px; }
+  }
+
+  /* Language switch */
+  .bar { flex-wrap:wrap; gap:.75rem; }
+  .langs { display:flex; gap:.4rem; }
+  .langs button { background:none; border:1px solid var(--line); color:var(--ink); padding:.35rem .7rem; border-radius:999px; font:inherit; font-size:.9rem; cursor:pointer; }
+  .langs button[aria-pressed="true"] { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="bar">
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="langs">
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      <button type="button" data-lang="ht" aria-pressed="false">HT</button>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark mode">Dark mode</button>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-text">
+        <div class="flagbar" aria-hidden="true"><span></span><span></span></div>
+        <h1>Ing Jn Kelly Saingilus</h1>
+        <p class="role">Databases, IoT and software development</p>
+        <p>Final-year computer science student at Université INUKA in Port-au-Prince. I connect sensors to the cloud, design databases, and build web applications that solve problems around me.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn wa" href="https://wa.me/50934134983?text=Hello%20Jean-Kelly%2C%20I%20saw%20your%20portfolio." target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+      <img class="photo" src="jeankellysaingilus938picture_me.jpg" alt="Portrait of Jean-Kelly Saingilus" width="220" height="220" onerror="this.style.display='none'">
+    </div>
+
+    <section class="about" id="about">
+      <h2>About me</h2>
+      <p>I'm Jhon, a computer science student in Haiti. I'm passionate about databases and the Internet of Things, and I enjoy the full path from a sensor reading to a table in a database to a page people can open.</p>
+      <p>I'm a member of <a href="https://codingclubhaiti.com" target="_blank" rel="noopener">Coding Club Haïti</a>, a community that teaches programming to young Haitians. I also worked on branding for a Haitian chocolate business, Choco Lanmou.</p>
+
+      <h2 style="margin-top:2.5rem">Skills</h2>
+      <div class="grid">
+        <div><h3>Programming</h3><p>Java, Python, JavaScript, PHP, HTML, CSS, Programmation C</p></div>
+        <div><h3>Databases</h3><p>SQL Server, MySQL, Oracle, advanced databases,Postgre Sql</p></div>
+        <div><h3>IoT and electronics</h3><p>Arduino, ESP32, Raspberry Pi, Wokwi, Tinkercad</p></div>
+        <div><h3>Networking</h3><p>Network fundamentals and administration, I have a certicate in Cybersecurity from google, Windows server, Packet tracer</p></div>
+      </div>
+
+      <div class="learn">
+        <h2>Training</h2>
+        <ul class="plain">
+                    <li>Aspirant Ing Computer Scinece, trained by University INUKA.</li>
+          <li>Electronics and prototyping, trained by EIC.</li>
+          <li>Artificial intelligence and robotics, with EIC and HARTS.</li>
+          <li>Cybersecurity, trained by Google and (Kaw Academy).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <h3>Smart connected irrigation</h3>
+        <p>An ESP32 reads temperature, air humidity and soil moisture, then switches a water pump on and off. It has a manual button and a safety timeout. Simulated on Wokwi and presented at ESIH with my team Lockly.</p>
+        <p class="stack">ESP32, DHT22, MQTT, Wokwi</p>
+        <div class="links"><a href="#">Code on GitHub</a></div>
+      </article>
+
+      <article class="project">
+        <h3>Digital voltmeter with alarm</h3>
+        <p>A voltmeter that shows the measured voltage on an LCD, lights three LEDs by level, sounds a buzzer, and freezes the reading with a HOLD button.</p>
+        <p class="stack">Arduino, LCD, Wokwi</p>
+        <div class="links"><a href="#">Wokwi simulation</a></div>
+      </article>
+
+      <article class="project">
+        <h3>Arduino Mega assistant</h3>
+        <p>A board you control with serial commands. It drives an LCD, three LEDs, a servo, a buzzer and a button.</p>
+        <p class="stack">Arduino Mega, Serial, Wokwi</p>
+        <div class="links"><a href="#">Wokwi simulation</a></div>
+      </article>
+
+      <article class="project">
+        <h3>SanKoutye <span class="status">In progress</span></h3>
+        <p>A platform that replaces informal real estate brokers in Haiti. Owners post houses, visitors search by city, type and price, and contact them on WhatsApp. The backend and the React frontend are connected end to end.</p>
+        <p class="stack">Java, Spring Boot, JWT, MySQL, React</p>
+        <div class="links"><a href="https://github.com/JeanKelly/sankoutye-backend" target="_blank" rel="noopener">Backend on GitHub</a></div>
+      </article>
+
+      <article class="project">
+        <h3>AnalyseMarket</h3>
+        <p>A sales analysis tool with three interfaces on one shared backend: a terminal pipeline, a desktop app, and a Streamlit web dashboard deployed online.</p>
+        <p class="stack">Python, tkinter, Streamlit</p>
+        <div class="links"><a href="#">Live dashboard</a></div>
+      </article>
+
+      <article class="project">
+        <h3>Live quiz game</h3>
+        <p>A real-time multiplayer quiz for an event at Université INUKA. Players join by QR code, up to 200 at once, with questions by faculty.</p>
+        <p class="stack">FastAPI, WebSocket, JavaScript</p>
+        <div class="links"><a href="#">Code on GitHub</a></div>
+      </article>
+
+      <article class="project">
+        <h3>SQL Server administration</h3>
+        <p>Partitioning, views, triggers, security roles, Database Mail, an SSIS package that exports orders to Excel, and a backup strategy with maintenance plans.</p>
+        <p class="stack">SQL Server, SSIS, T-SQL</p>
+      </article>
+
+      <article class="project">
+        <h3>TicketLine</h3>
+        <p>A microservices application with service discovery and a dark admin dashboard.</p>
+        <p class="stack">Spring Boot, Eureka, Thymeleaf</p>
+        <div class="links"><a href="#">Code on GitHub</a></div>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="af8cc97c-ceb0-4d77-8338-8f1f9fc1a83c">
+        <input type="hidden" name="subject" value="New message from my portfolio">
+        <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label>Your name <input type="text" name="name" required autocomplete="name"></label>
+        <label>Your email or phone <input type="text" name="contact" required></label>
+        <label>Message <textarea name="message" required></textarea></label>
+        <button class="btn primary" type="submit" id="sendBtn">Send message</button>
+        <p id="formMsg" role="status"></p>
+      </form>
+      <p class="or">Prefer a faster answer?</p>
+      <div class="btns">
+        <a class="btn wa" href="https://wa.me/50934134983" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn" href="https://github.com/JeanKelly" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; <span id="year">2026</span> Ing Jean-Kelly Saingilus. Port-au-Prince, Haiti.</footer>
+</div>
+
+<a class="fab" href="https://wa.me/50934134983" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.1.82.83-3.03-.2-.31a8.2 8.2 0 1 1 6.97 3.85Zm4.5-6.1c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.17.25-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.02-.38.1-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.17 0-.43.06-.65.31-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.54.12.17 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.17-.47-.29Z"/></svg>
+</a>
+
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById("themeBtn");
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function isDark() {
+    var t = root.getAttribute("data-theme");
+    return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function label() { btn.textContent = tr(isDark() ? "Light mode" : "Dark mode"); }
+  try { var s = localStorage.getItem("theme"); if (s === "dark" || s === "light") root.setAttribute("data-theme", s); } catch (e) {}
+  label();
+  btn.addEventListener("click", function () {
+    var n = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", n);
+    try { localStorage.setItem("theme", n); } catch (e) {}
+    label();
+  });
+
+  var form = document.getElementById("contactForm"), msg = document.getElementById("formMsg"), send = document.getElementById("sendBtn");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    send.disabled = true; msg.textContent = tr("Sending...");
+    fetch(form.action, { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.success) { msg.textContent = tr("Thank you! Your message was sent."); form.reset(); }
+        else { msg.textContent = tr("Something went wrong. Please try WhatsApp instead."); }
+      })
+      .catch(function () { msg.textContent = tr("Network error. Please try WhatsApp instead."); })
+      .then(function () { send.disabled = false; });
+  });
+
+  var DICT = {
+    fr: {
+      "About":"À propos", "Projects":"Projets", "Contact":"Contact",
+      "Dark mode":"Mode sombre", "Light mode":"Mode clair",
+      "Databases, IoT and software development":"Bases de données, IoT et développement logiciel",
+      "Final-year computer science student at Université INUKA in Port-au-Prince. I connect sensors to the cloud, design databases, and build web applications that solve problems around me.":"Étudiant finissant en informatique à l'Université INUKA, à Port-au-Prince. Je connecte des capteurs au cloud, je conçois des bases de données et je développe des applications web qui résolvent des problèmes autour de moi.",
+      "See my projects":"Voir mes projets", "Chat on WhatsApp":"Discuter sur WhatsApp",
+      "About me":"À propos de moi",
+      "I'm Jhon, a computer science student in Haiti. I'm passionate about databases and the Internet of Things, and I enjoy the full path from a sensor reading to a table in a database to a page people can open.":"Je suis Jhon, étudiant en informatique en Haïti. Je suis passionné par les bases de données et l'Internet des objets, et j'aime tout le parcours, de la lecture d'un capteur à une table de base de données, puis à une page que tout le monde peut ouvrir.",
+      "I'm a member of":"Je suis membre de",
+      ", a community that teaches programming to young Haitians. I also worked on branding for a Haitian chocolate business, Choco Lanmou.":", une communauté qui enseigne la programmation aux jeunes Haïtiens. J'ai aussi travaillé sur l'image de marque d'une entreprise haïtienne de chocolat, Choco Lanmou.",
+      "Skills":"Compétences", "Programming":"Programmation", "Databases":"Bases de données",
+      "SQL Server, MySQL, Oracle, advanced databases,Postgre Sql":"SQL Server, MySQL, Oracle, bases de données avancées, PostgreSQL",
+      "IoT and electronics":"IoT et électronique", "Networking":"Réseaux",
+      "Network fundamentals and administration, I have a certicate in Cybersecurity from google, Windows server, Packet tracer":"Bases des réseaux et administration, j'ai un certificat en cybersécurité de Google, Windows Server, Packet Tracer",
+      "Training":"Formations",
+      "Aspirant Ing Computer Scinece, trained by University INUKA.":"Aspirant ingénieur en informatique, formation à l'Université INUKA.",
+      "Electronics and prototyping, trained by EIC.":"Électronique et prototypage, formation par l'EIC.",
+      "Artificial intelligence and robotics, with EIC and HARTS.":"Intelligence artificielle et robotique, avec l'EIC et HARTS.",
+      "Cybersecurity, trained by Google and (Kaw Academy).":"Cybersécurité, formation par Google et (Kaw Academy).",
+      "Smart connected irrigation":"Irrigation intelligente connectée",
+      "An ESP32 reads temperature, air humidity and soil moisture, then switches a water pump on and off. It has a manual button and a safety timeout. Simulated on Wokwi and presented at ESIH with my team Lockly.":"Un ESP32 lit la température, l'humidité de l'air et celle du sol, puis allume et éteint une pompe à eau. Il dispose d'un bouton manuel et d'une temporisation de sécurité. Simulé sur Wokwi et présenté à l'ESIH avec mon équipe Lockly.",
+      "Digital voltmeter with alarm":"Voltmètre numérique avec alarme",
+      "A voltmeter that shows the measured voltage on an LCD, lights three LEDs by level, sounds a buzzer, and freezes the reading with a HOLD button.":"Un voltmètre qui affiche la tension mesurée sur un écran LCD, allume trois LED selon le niveau, fait sonner un buzzer et fige la mesure avec un bouton HOLD.",
+      "Arduino Mega assistant":"Assistant Arduino Mega",
+      "A board you control with serial commands. It drives an LCD, three LEDs, a servo, a buzzer and a button.":"Une carte que l'on pilote avec des commandes série. Elle commande un écran LCD, trois LED, un servomoteur, un buzzer et un bouton.",
+      "In progress":"En cours",
+      "A platform that replaces informal real estate brokers in Haiti. Owners post houses, visitors search by city, type and price, and contact them on WhatsApp. The backend and the React frontend are connected end to end.":"Une plateforme qui remplace les courtiers immobiliers informels en Haïti. Les propriétaires publient des maisons, les visiteurs cherchent par ville, type et prix, et les contactent sur WhatsApp. Le backend et le frontend React sont connectés de bout en bout.",
+      "A sales analysis tool with three interfaces on one shared backend: a terminal pipeline, a desktop app, and a Streamlit web dashboard deployed online.":"Un outil d'analyse des ventes avec trois interfaces sur un même backend : un pipeline en terminal, une application de bureau et un tableau de bord web Streamlit déployé en ligne.",
+      "Live quiz game":"Quiz en direct",
+      "A real-time multiplayer quiz for an event at Université INUKA. Players join by QR code, up to 200 at once, with questions by faculty.":"Un quiz multijoueur en temps réel pour un événement à l'Université INUKA. Les joueurs rejoignent par QR code, jusqu'à 200 en même temps, avec des questions par faculté.",
+      "SQL Server administration":"Administration SQL Server",
+      "Partitioning, views, triggers, security roles, Database Mail, an SSIS package that exports orders to Excel, and a backup strategy with maintenance plans.":"Partitionnement, vues, déclencheurs, rôles de sécurité, Database Mail, un package SSIS qui exporte les commandes vers Excel et une stratégie de sauvegarde avec plans de maintenance.",
+      "A microservices application with service discovery and a dark admin dashboard.":"Une application en microservices avec découverte de services et un tableau de bord d'administration sombre.",
+      "Code on GitHub":"Code sur GitHub", "Wokwi simulation":"Simulation Wokwi",
+      "Live dashboard":"Tableau de bord en ligne", "Backend on GitHub":"Backend sur GitHub",
+      "Your name":"Votre nom", "Your email or phone":"Votre e-mail ou téléphone",
+      "Message":"Message", "Send message":"Envoyer le message",
+      "Prefer a faster answer?":"Vous voulez une réponse plus rapide ?",
+      "Sending...":"Envoi...",
+      "Thank you! Your message was sent.":"Merci ! Votre message a été envoyé.",
+      "Something went wrong. Please try WhatsApp instead.":"Une erreur s'est produite. Essayez plutôt WhatsApp.",
+      "Network error. Please try WhatsApp instead.":"Erreur réseau. Essayez plutôt WhatsApp."
+    },
+    ht: {
+      "About":"Sou mwen", "Projects":"Pwojè", "Contact":"Kontak",
+      "Dark mode":"Mòd fènwa", "Light mode":"Mòd klè",
+      "Databases, IoT and software development":"Baz de done, IoT ak devlopman lojisyèl",
+      "Final-year computer science student at Université INUKA in Port-au-Prince. I connect sensors to the cloud, design databases, and build web applications that solve problems around me.":"Etidyan finalis an enfòmatik nan Université INUKA, Pòtoprens. Mwen konekte sansè ak cloud la, mwen konsevwa baz de done epi mwen bati aplikasyon wèb ki rezoud pwoblèm alantou mwen.",
+      "See my projects":"Gade pwojè mwen yo", "Chat on WhatsApp":"Pale avè m sou WhatsApp",
+      "About me":"Sou mwen",
+      "I'm Jhon, a computer science student in Haiti. I'm passionate about databases and the Internet of Things, and I enjoy the full path from a sensor reading to a table in a database to a page people can open.":"Mwen se Jhon, yon etidyan enfòmatik an Ayiti. Mwen pasyone pa baz de done ak entènèt des objè, e mwen renmen tout chemen an, depi yon mezi sansè jiska yon tab nan yon baz de done, epi yon paj moun ka louvri.",
+      "I'm a member of":"Mwen se manm",
+      ", a community that teaches programming to young Haitians. I also worked on branding for a Haitian chocolate business, Choco Lanmou.":", yon kominote ki anseye pwogramasyon bay jèn Ayisyen yo. Mwen te travay tou sou branding yon biznis chokola ayisyen, Choco Lanmou.",
+      "Skills":"Konpetans", "Programming":"Pwogramasyon", "Databases":"Baz de done",
+      "Java, Python, JavaScript, PHP, HTML, CSS, Programmation C":"Java, Python, JavaScript, PHP, HTML, CSS, Pwogramasyon C",
+      "SQL Server, MySQL, Oracle, advanced databases,Postgre Sql":"SQL Server, MySQL, Oracle, baz de done avanse, PostgreSQL",
+      "IoT and electronics":"IoT ak elektwonik", "Networking":"Rezo",
+      "Network fundamentals and administration, I have a certicate in Cybersecurity from google, Windows server, Packet tracer":"Baz sou rezo ak administrasyon, mwen gen yon sètifika nan sekirite enfòmatik nan Google, Windows Server, Packet Tracer",
+      "Training":"Fòmasyon",
+      "Aspirant Ing Computer Scinece, trained by University INUKA.":"Aspiran enjenyè an enfòmatik, fòmasyon nan Université INUKA.",
+      "Electronics and prototyping, trained by EIC.":"Elektwonik ak pwototip, fòmasyon pa EIC.",
+      "Artificial intelligence and robotics, with EIC and HARTS.":"Entèlijans atifisyèl ak robotik, ak EIC ak HARTS.",
+      "Cybersecurity, trained by Google and (Kaw Academy).":"Sekirite enfòmatik, fòmasyon pa Google ak (Kaw Academy).",
+      "Smart connected irrigation":"Irigasyon entèlijan ki konekte",
+      "An ESP32 reads temperature, air humidity and soil moisture, then switches a water pump on and off. It has a manual button and a safety timeout. Simulated on Wokwi and presented at ESIH with my team Lockly.":"Yon ESP32 li tanperati, imidite lè a ak imidite tè a, epi li limen oswa fèmen yon ponp dlo. Li gen yon bouton manyèl ak yon tan sekirite. Simile sou Wokwi epi prezante nan ESIH ak ekip mwen an, Lockly.",
+      "Digital voltmeter with alarm":"Voltmèt nimerik ak alam",
+      "A voltmeter that shows the measured voltage on an LCD, lights three LEDs by level, sounds a buzzer, and freezes the reading with a HOLD button.":"Yon voltmèt ki montre tansyon li mezire a sou yon ekran LCD, limen twa LED selon nivo a, fè yon buzzer sonnen, epi bloke mezi a ak yon bouton HOLD.",
+      "Arduino Mega assistant":"Asistan Arduino Mega",
+      "A board you control with serial commands. It drives an LCD, three LEDs, a servo, a buzzer and a button.":"Yon kat ou kontwole ak kòmand seri. Li kontwole yon ekran LCD, twa LED, yon servo, yon buzzer ak yon bouton.",
+      "In progress":"Ap fèt",
+      "A platform that replaces informal real estate brokers in Haiti. Owners post houses, visitors search by city, type and price, and contact them on WhatsApp. The backend and the React frontend are connected end to end.":"Yon platfòm ki ranplase koutye enfòmèl yo an Ayiti. Pwopriyetè yo pibliye kay, vizitè yo chèche selon vil, kalite ak pri, epi kontakte yo sou WhatsApp. Backend la ak frontend React la konekte ansanm de bout an bout.",
+      "A sales analysis tool with three interfaces on one shared backend: a terminal pipeline, a desktop app, and a Streamlit web dashboard deployed online.":"Yon zouti pou analize lavant ak twa entèfas sou menm backend la: yon pipeline nan tèminal, yon aplikasyon òdinatè, ak yon dashboard wèb Streamlit ki deplwaye sou entènèt.",
+      "Live quiz game":"Quiz an dirèk",
+      "A real-time multiplayer quiz for an event at Université INUKA. Players join by QR code, up to 200 at once, with questions by faculty.":"Yon quiz miltijwè an tan reyèl pou yon evènman nan Université INUKA. Jwè yo antre ak QR code, jiska 200 an menm tan, ak kesyon pa fakilte.",
+      "SQL Server administration":"Administrasyon SQL Server",
+      "Partitioning, views, triggers, security roles, Database Mail, an SSIS package that exports orders to Excel, and a backup strategy with maintenance plans.":"Patisyon, view, trigger, wòl sekirite, Database Mail, yon pakè SSIS ki ekspòte kòmand yo nan Excel, ak yon estrateji sovgad ak plan antretyen.",
+      "A microservices application with service discovery and a dark admin dashboard.":"Yon aplikasyon mikwoservis ak dekouvèt sèvis ak yon dashboard admin fènwa.",
+      "Code on GitHub":"Kòd sou GitHub", "Wokwi simulation":"Simulasyon Wokwi",
+      "Live dashboard":"Dashboard sou entènèt", "Backend on GitHub":"Backend sou GitHub",
+      "Your name":"Non ou", "Your email or phone":"Imèl oswa telefòn ou",
+      "Message":"Mesaj", "Send message":"Voye mesaj la",
+      "Prefer a faster answer?":"Ou vle yon repons pi vit?",
+      "Sending...":"Ap voye...",
+      "Thank you! Your message was sent.":"Mèsi! Mesaj ou a voye.",
+      "Something went wrong. Please try WhatsApp instead.":"Gen yon erè. Eseye WhatsApp la olye.",
+      "Network error. Please try WhatsApp instead.":"Erè rezo. Eseye WhatsApp la olye."
+    }
+  };
+  var cur = "en";
+
+  function tr(s) {
+    if (!cur || cur === "en" || !DICT || !DICT[cur]) return s;
+    return DICT[cur][s] || s;
+  }
+
+  function applyLang(l) {
+    if (l !== "en" && !DICT[l]) l = "en";
+    cur = l;
+    root.lang = l;
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null), n;
+    while ((n = w.nextNode())) {
+      var p = n.parentNode;
+      if (p.id === "themeBtn" || /^(SCRIPT|STYLE|TEXTAREA)$/.test(p.tagName)) continue;
+      if (n.__en === undefined) n.__en = n.nodeValue;
+      var m = n.__en.match(/^(\s*)([\s\S]*?)(\s*)$/);
+      var key = m[2].replace(/\s+/g, " ");
+      var t = tr(key);
+      n.nodeValue = (t === key) ? n.__en : m[1] + t + m[3];
+    }
+    var bs = document.querySelectorAll("[data-lang]");
+    for (var i = 0; i < bs.length; i++) {
+      bs[i].setAttribute("aria-pressed", bs[i].getAttribute("data-lang") === l);
+    }
+    label();
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+
+  document.querySelectorAll("[data-lang]").forEach(function (b) {
+    b.addEventListener("click", function () { applyLang(b.getAttribute("data-lang")); });
+  });
+
+  var startLang = "en";
+  try {
+    var saved = localStorage.getItem("lang");
+    if (saved === "en" || saved === "fr" || saved === "ht") startLang = saved;
+    else {
+      var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+      if (nav === "fr" || nav === "ht") startLang = nav;
+    }
+  } catch (e) {}
+  applyLang(startLang);
+})();
+</script>
+</body>
+</html>
